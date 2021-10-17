@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dropzone</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: chartreuse;
+      margin: 15px 0;
+    }
+
+    .drop {
+      width: 100px;
+      height: 245px;
+      border: 1px solid darkgreen;
+    }
+  </style>
+</head>
+<body>
+  <!-- o atributo dropzone irá especificar o que vai acontecer quando um elemento draggable for arrastado -->
+  <!-- os navegadores ainda não implementaram esse recurso, portanto JS é necessário -->
+  <div
+    id="box1"
+    class="box"
+    draggable="true"
+  ></div>
+  <div
+    id="box2"
+    class="box"
+    draggable="true"
+  ></div>
+  <div
+    class="drop"
+    dropzone="copy"
+  >
+  </div>
+
+  <script>
+    const boxes = document.querySelectorAll('.box')
+    const dropzone = document.querySelector('[dropzone]')
+
+    boxes.forEach(box => {
+      box.addEventListener('dragstart', event => {
+        event.dataTransfer.setData('Text', event.target.id)
+        console.log('id do box que está sendo arrastado', event.target.id)
+      })
+    })
+
+    dropzone.addEventListener('dragover', event => {
+      event.preventDefault();
+    })
+
+    dropzone.addEventListener('drop', event => {
+      console.log('A caixa está sobre o dropzone')
+      const boxId = event.dataTransfer.getData('Text')
+      const box = document.getElementById(boxId)
+
+      event.target.appendChild(box)
+    })
+  </script>
+</body>
+</html>

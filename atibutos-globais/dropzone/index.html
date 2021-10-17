@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dropzone</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: chartreuse;
+    }
+
+    .drop {
+      width: 100px;
+      height: 100px;
+      border: 1px solid darkgreen;
+    }
+  </style>
+</head>
+<body>
+  <!-- o atributo dropzone irá especificar o que vai acontecer quando um elemento draggable for arrastado -->
+  <!-- os navegadores ainda não implementaram esse recurso, portanto JS é necessário -->
+  <div
+    class="box"
+    draggable="true"
+  ></div>
+  <div
+    class="drop"
+    dropzone="copy"
+  >
+  </div>
+</body>
+</html>
