@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data-*</title>
+</head>
+<body>
+  <!-- o atributo data-* é utilizado quando queremos armazenar alguma informação em uma tag html -->
+  <ul>
+    <li
+      data-id="1"
+      data-email="yago@email.com"
+    >
+      Yago Milano
+    </li>
+  </ul>
+
+  <script>
+    // o dataset irá retornar os atributos contidos na li,
+    // (id, email)
+    document.querySelectorAll('li').forEach(element => {
+      console.log(element.dataset)
+      console.log(`id: ${element.dataset.id}`)
+      console.log(`email: ${element.dataset.email}`)
+    })
+  </script>
+</body>
+</html>
